@@ -1,1 +1,52 @@
+<p>{{ message }}</p>
+
+<p [id]="sayHelloId" [style.color]="fontColor">
+  You can set my color in the component!
+</p>
+
+<button type="button" [disabled]="canClick" (click)="onEditClick()">
+  Trigger alert message
+</button>
+
+
+<div *ngIf="canEdit; else noEdit">
+  <p>You can edit the following paragraph.</p>
+</div>
+
+<ng-template #noEdit>
+  <p>The following paragraph is read only. Try clicking the button!</p>
+</ng-template>
+
+<p [contentEditable]="canEdit">{{ message }}</p>
+
+
+<p>{{ message1 }}</p>
+  <a style="margin-left: 10px" href="#">
+<!--    <img alt="armenia" src="../assets/images/armenia.jpg" width="50" height="30">-->
+  </a>
+
+<a (click)="onEditClick1(1)" style="margin-left: 10px" href="#">
+  <img alt="armenia" src="../assets/images/armenia.jpg" width="50" height="30">
+</a>
+
+<a (click)="onEditClick1(0)" style="margin-left: 10px" href="#">
+  <img alt="usa" src="../assets/images/usa.jpg" width="50" height="30">
+</a>
+
+<a (click)="onEditClick1(2)" style="margin-left: 10px" href="#">
+  <img alt="russia" src="../assets/images/russia.png" width="50" height="30">
+</a>
+
+
+
+<div style="margin-top: 50px">
+  <a href="#" *ngFor="let src of images; let i = index">
+    <img [src]="src" width="100" height="70">
+
+  </a>
+</div>
+
+
+
+
 <router-outlet></router-outlet>
