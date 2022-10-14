@@ -42,9 +42,28 @@
 <div style="margin-top: 50px">
   <a href="#" *ngFor="let src of images; let i = index">
     <img [src]="src" width="100" height="70">
-
   </a>
 </div>
+
+
+
+<input (click)="onInputValue()" id="flag" type="button" name="flag" value="Armenia" />
+<input (click)="onInputValue1()" id="flag2" type="button" name="flag" value="Usa" />
+<input (click)="onInputValue2()" id="flag3" type="button" name="flag" value="Russia" />
+
+<img id="img1" class="img1 img-arm" src="../assets/images/armenia.jpg" width="175" height="116">
+<img id="img3" class="img1 img-arm" src="../assets/images/usa.jpg" width="175" height="116">
+<img id="img4" class="img1 img-arm" src="../assets/images/russia.png" width="175" height="116">
+
+<input (click)="onClickRemove()" id="remove-btt" type="button" name="flag" value="Remove" />
+
+
+
+
+
+
+<input class="input-text" id="input-text" type="text" name="inp" value="Type Text">
+<input class="input-btn" id="input-btn" type="button" name="inp-btn" value="click for add">
 
 
 

@@ -1,1 +1,17 @@
-
+.img-arm{
+  display: none;
+  margin-top: 30px;
+}
+.img2{
+  display: block;
+}
+.img3{
+  display: block;
+}
+.img4{
+  display: block;
+}
+.input-text{
+  display: block;
+  margin-top: 10px;
+}
