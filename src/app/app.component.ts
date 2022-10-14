@@ -84,9 +84,7 @@ export class AppComponent {
     if (pic3 != null){
       pic3.classList.remove('img4')
     }
-
   }
-
 
 }
 
