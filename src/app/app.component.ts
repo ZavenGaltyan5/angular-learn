@@ -86,24 +86,27 @@ export class AppComponent {
     }
   }
 
+
+
+  onClickAddImg(){
+    const ti1 = document.getElementById('task-img1');
+    const ti2 = document.getElementById('task-img2');
+    const ti3 = document.getElementById('task-img3');
+    const tinp1 = document.getElementById('input-text') as HTMLInputElement | null;
+    if (tinp1?.value === 'armenia' && ti1 != null){
+      ti1.classList.add('task-block')
+    }
+    if (tinp1?.value === 'usa' && ti2 != null){
+      ti2.classList.add('task-block')
+    }
+    if (tinp1?.value === 'russia' && ti3 != null){
+      ti3.classList.add('task-block')
+    }
+  }
+
+
+
+
+
+
 }
-
-// let flags = ['armenia','usa','russia'];
-
-
-const input = document.getElementById('flag') as HTMLInputElement | null;
-
-const value = input?.value;
-console.log(value) // 👉️ "Initial value"
-
-if (input != null) {
-  console.log(input.value); // 👉️ "Initial value"
-}
-
-input?.addEventListener('input', function (event) {
-  const target = event.target as HTMLInputElement;
-  console.log(target.value);
-});
-
-
-
