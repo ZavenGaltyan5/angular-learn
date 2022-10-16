@@ -104,7 +104,21 @@ export class AppComponent {
     }
   }
 
-
+  onClickRemoveImg(){
+    const ti1 = document.getElementById('task-img1');
+    const ti2 = document.getElementById('task-img2');
+    const ti3 = document.getElementById('task-img3');
+    const rbtn = document.getElementById('remove-btn')
+    if (ti1 != null){
+      ti1.classList.remove('task-block')
+    }
+    if (ti2 != null){
+      ti2.classList.remove('task-block')
+    }
+    if (ti3 != null){
+      ti3.classList.remove('task-block')
+    }
+  }
 
 
 
