@@ -13,7 +13,13 @@ export class AppComponent {
   fontColor = 'red';
   sayHelloId = 1;
   canClick = false;
+  t: HTMLInputElement | null = document.getElementById('text-country') as HTMLInputElement | null;
+  f: string | undefined = this.t?.value;
+  j: object = ['armenia','usa','russia'];
 
+
+  constructor() {
+  }
   sayMessage() {
     alert('table-top');
   }
@@ -119,8 +125,6 @@ export class AppComponent {
       ti3.classList.remove('task-block')
     }
   }
-
-
 
 
 }
