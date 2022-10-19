@@ -13,12 +13,14 @@ export class AppComponent {
   fontColor = 'red';
   sayHelloId = 1;
   canClick = false;
-  t: HTMLInputElement | null = document.getElementById('text-country') as HTMLInputElement | null;
+  t: HTMLInputElement = document.getElementById('text-country') as HTMLInputElement ;
   f: string | undefined = this.t?.value;
-  j: object = ['armenia','usa','russia'];
+  j: HTMLInputElement = document.getElementById('btn-country-add') as HTMLInputElement ;
+
 
 
   constructor() {
+
   }
   sayMessage() {
     alert('table-top');
@@ -126,5 +128,11 @@ export class AppComponent {
     }
   }
 
+
+
+  ClickAdd(){
+    const t = this.t;
+    const f = this.f;
+  }
 
 }
