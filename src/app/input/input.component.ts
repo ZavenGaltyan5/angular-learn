@@ -33,6 +33,8 @@ export class InputComponent implements OnInit {
 
 
   removeSelectElement(){
+    this.src.filter(function(value, index, arr){
+    })
   }
 
 
