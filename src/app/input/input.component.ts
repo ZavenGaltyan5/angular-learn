@@ -32,12 +32,37 @@ export class InputComponent implements OnInit {
   }
 
 
-  removeSelectElement(){
-    this.src.filter(function(value, index, arr){
-    })
+  // removeSelectElement(){
+  //   this.src.filter(function(value, index, arr){
+  //   })
+  // }
+
+
+
+  filterFunction(){
+    const names = ['armenia','usa','russia'];
+    const textFilter = document.getElementById('text-filter') as HTMLInputElement | null;
+    const arrayName = this.src;
+    if (textFilter?.value === 'armenia' ){
+      this.src = ['armenia']
+    }
+    else if (textFilter?.value === 'usa'){
+      this.src = ['usa']
+    }
+    else if (textFilter?.value === 'russia'){
+      this.src = ['russia']
+    }
   }
 
 
 
 
+
+
+
 }
+
+
+
+
+

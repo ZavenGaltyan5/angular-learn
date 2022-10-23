@@ -1,5 +1,5 @@
 <input style="margin-top: 50px;display: block" class="input1" id="text-country1" type="text" name="input-country">
-<input class="input1-btn-add" id="btn-country-add" type="button" name="input-btn-add" value="Click for Add" (click)="add()">
+<input (keyup.enter)="add()" class="input1-btn-add" id="btn-country-add" type="button" name="input-btn-add" value="Click for Add" (click)="add()">
 <input class="input1-btn-remove" id="btn-country-remove" type="button" name="input-btn-remove" value="Remove" (click)="remove()">
 
 <input class="remove-last-element" id="btn-remove-last" type="button" name="remove-last" value="Remove Last Element" (click)="src.pop()">
@@ -8,3 +8,8 @@
   <input class="input1-btn-remove"  type="button" name="input-btn-remove" value="Remove" (click)="removeSelected(i)">
   <img style="display: block" id="img-country" src="../assets/images/{{s}}.jpg" width="175" height="116">
 </div>
+
+
+
+<input class="text-filter" type="text" name="text-filter" id="text-filter">
+<input class="filter-btn" type="button" name="filter-btn" value="filter" (click)="filterFunction()">
