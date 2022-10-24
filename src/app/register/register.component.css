@@ -1,0 +1,7 @@
+.input-register{
+  display: block;
+  margin-bottom: 15px;
+  border: 1px solid orange;
+  padding: 5px 2px;
+  border-radius: 5px;
+}
