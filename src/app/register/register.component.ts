@@ -15,12 +15,28 @@ export class RegisterComponent implements OnInit {
   registerButton(){
     const FirstN = document.getElementById('f-name') as HTMLInputElement | null;
     const FNameLength = FirstN?.value
+    var fname
     // @ts-ignore
-    if (FNameLength?.length >= 4){
-      console.log(FNameLength)
+    if (FNameLength?.length > 4){
+      fname='';
     }else {
-      console.log('This Name is correct')
+      fname='false this text < 5';
     }
+    // @ts-ignore
+    document.getElementById('p-f-name').innerText=fname;
+
+
+    const LastN = document.getElementById('l-name') as HTMLInputElement | null;
+    const LNameLength = LastN?.value
+    var lname
+    // @ts-ignore
+    if (LNameLength?.length > 8){
+      lname='';
+    }else {
+      lname='false this text < 8';
+    }
+    // @ts-ignore
+    document.getElementById('p-l-name').innerText=lname;
   }
 
 }
