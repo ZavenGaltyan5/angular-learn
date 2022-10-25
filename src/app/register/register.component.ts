@@ -12,7 +12,15 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-
+  registerButton(){
+    const FirstN = document.getElementById('f-name') as HTMLInputElement | null;
+    const FNameLength = FirstN?.value
+    // @ts-ignore
+    if (FNameLength?.length >= 4){
+      console.log(FNameLength)
+    }else {
+      console.log('This Name is correct')
+    }
+  }
 
 }
