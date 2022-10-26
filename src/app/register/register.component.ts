@@ -25,7 +25,6 @@ export class RegisterComponent implements OnInit {
     // @ts-ignore
     document.getElementById('p-f-name').innerText=fname;
 
-
     const LastN = document.getElementById('l-name') as HTMLInputElement | null;
     const LNameLength = LastN?.value
     var lname
@@ -37,7 +36,6 @@ export class RegisterComponent implements OnInit {
     }
     // @ts-ignore
     document.getElementById('p-l-name').innerText=lname;
-
 
     const Email = document.getElementById('email') as HTMLInputElement | null;
     const EmailLength = Email?.value
@@ -51,6 +49,32 @@ export class RegisterComponent implements OnInit {
     // @ts-ignore
     document.getElementById('p-email').innerText=email;
 
+    const uName = document.getElementById('username') as HTMLInputElement | null;
+    const uNameLength = uName?.value;
+    var uname
+    // @ts-ignore
+    if (uNameLength?.length > 8){
+      uname='';
+    }else {
+      uname='false this text < 8';
+    }
+    // @ts-ignore
+    document.getElementById('p-user').innerText=uname;
+
+    const Age = document.getElementById('age') as HTMLInputElement | null;
+    const ageLength = Age?.value;
+    var age
+    // @ts-ignore
+    if (ageLength > 18){
+      age='';
+    }else {
+      age='you are very young';
+    }
+    // @ts-ignore
+    document.getElementById('p-age').innerText=age;
   }
+
+
+
 
 }
