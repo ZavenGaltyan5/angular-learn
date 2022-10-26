@@ -72,6 +72,19 @@ export class RegisterComponent implements OnInit {
     }
     // @ts-ignore
     document.getElementById('p-age').innerText=age;
+
+
+    const Phone = document.getElementById('phone') as HTMLInputElement | null;
+    const phoneLength = Phone?.value;
+    var phone
+    // @ts-ignore
+    if (phoneLength?.length >= 10){
+      phone='';
+    }else {
+      phone='this phone not found';
+    }
+    // @ts-ignore
+    document.getElementById('p-phone').innerText=phone;
   }
 
 
