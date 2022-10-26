@@ -37,6 +37,20 @@ export class RegisterComponent implements OnInit {
     }
     // @ts-ignore
     document.getElementById('p-l-name').innerText=lname;
+
+
+    const Email = document.getElementById('email') as HTMLInputElement | null;
+    const EmailLength = Email?.value
+    var email
+    // @ts-ignore
+    if (EmailLength?.length > 8){
+      email='';
+    }else {
+      email='false this text < 8';
+    }
+    // @ts-ignore
+    document.getElementById('p-email').innerText=email;
+
   }
 
 }
