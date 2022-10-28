@@ -1,15 +1,6 @@
-.input-register{
-  display: block;
-  margin-bottom: 15px;
-  border: 1px solid orange;
-  padding: 5px 2px;
-  border-radius: 5px;
+.div-error{
+  color: red;
 }
-.reg-btn{
-  padding: 20px 20px;
-  background-color: maroon;
-  color: aqua;
-  font-size: 30px;
-  border-radius: 20px;
-  cursor: pointer;
+table, th, td {
+  border:1px solid black;
 }

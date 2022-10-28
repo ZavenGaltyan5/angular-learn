@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-register',
@@ -7,87 +9,116 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  users = [];
+  user = {};
+
+  profileForm = new FormGroup({
+
+    firstName: new FormControl('',[
+      Validators.required,
+      Validators.minLength(3),
+    ]),
+
+    lastName: new FormControl('',[
+      Validators.required,
+      Validators.minLength(3),
+    ]),
+
+    age: new FormControl('',[
+      Validators.required,
+      Validators.minLength(1),
+    ]),
+
+    phone: new FormControl('',[
+      Validators.required,
+      // Validators.pattern('^ [ + ] [0 - 9] $')
+    ]),
+
+    email: new FormControl('',[
+      Validators.required,
+      Validators.email,
+    ]),
+
+    userName: new FormControl('',[
+      Validators.required,
+      // Validators.pattern('^[a-z0-9_-]{3,15}$')
+    ]),
+
+    pass: new FormControl('',[
+      Validators.required,
+      Validators.minLength(5)
+    ]),
+
+    confPass: new FormControl('',[
+      Validators.required,
+      Validators.minLength(5)
+    ]),
+
+  });
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
-  registerButton(){
-    const FirstN = document.getElementById('f-name') as HTMLInputElement | null;
-    const FNameLength = FirstN?.value
-    var fname
-    // @ts-ignore
-    if (FNameLength?.length > 4){
-      fname='';
-    }else {
-      fname='false this text < 5';
-    }
-    // @ts-ignore
-    document.getElementById('p-f-name').innerText=fname;
-
-    const LastN = document.getElementById('l-name') as HTMLInputElement | null;
-    const LNameLength = LastN?.value
-    var lname
-    // @ts-ignore
-    if (LNameLength?.length > 8){
-      lname='';
-    }else {
-      lname='false this text < 8';
-    }
-    // @ts-ignore
-    document.getElementById('p-l-name').innerText=lname;
-
-    const Email = document.getElementById('email') as HTMLInputElement | null;
-    const EmailLength = Email?.value
-    var email
-    // @ts-ignore
-    if (EmailLength?.length > 8){
-      email='';
-    }else {
-      email='false this text < 8';
-    }
-    // @ts-ignore
-    document.getElementById('p-email').innerText=email;
-
-    const uName = document.getElementById('username') as HTMLInputElement | null;
-    const uNameLength = uName?.value;
-    var uname
-    // @ts-ignore
-    if (uNameLength?.length > 8){
-      uname='';
-    }else {
-      uname='false this text < 8';
-    }
-    // @ts-ignore
-    document.getElementById('p-user').innerText=uname;
-
-    const Age = document.getElementById('age') as HTMLInputElement | null;
-    const ageLength = Age?.value;
-    var age
-    // @ts-ignore
-    if (ageLength > 18){
-      age='';
-    }else {
-      age='you are very young';
-    }
-    // @ts-ignore
-    document.getElementById('p-age').innerText=age;
 
 
-    const Phone = document.getElementById('phone') as HTMLInputElement | null;
-    const phoneLength = Phone?.value;
-    var phone
+
+
+  ShowPass() {
     // @ts-ignore
-    if (phoneLength?.length >= 10){
-      phone='';
+    const pas1 = document.getElementById('password');
+    // @ts-ignore
+    if (pas1.type == 'password'){
+      // @ts-ignore
+      pas1.type = 'text';
     }else {
-      phone='this phone not found';
+      // @ts-ignore
+      pas1.type = 'password'
     }
-    // @ts-ignore
-    document.getElementById('p-phone').innerText=phone;
   }
+  ShowPass2() {
+    // @ts-ignore
+    const pas2 = document.getElementById('confirm-pass');
+    // @ts-ignore
+    if (pas2.type == 'password'){
+      // @ts-ignore
+      pas2.type = 'text';
+    }else {
+      // @ts-ignore
+      pas2.type = 'password'
+    }
+  }
+  PassAndConfPass(){
+    const pas1 = document.getElementById('password') as HTMLInputElement | null;
+    const pas2 = document.getElementById('confirm-pass') as HTMLInputElement | null;
+
+    if (pas1?.value != pas2?.value){
+      alert('passwords are not equal')
+    }
+
+    this.user = {
+      firstName:this.profileForm.get('firstName')?.value,
+      lastName:this.profileForm.get('lastName')?.value,
+      userName:this.profileForm.get('userName')?.value,
+      email:this.profileForm.get('email')?.value,
+      phone:this.profileForm.get('phone')?.value,
+      age:this.profileForm.get('age')?.value,
+      password:this.profileForm.get('pass')?.value,
+    }
+
+    // @ts-ignore
+    this.users.push(this.user)
+
+    localStorage.setItem('user',JSON.stringify(this.users));
+  }
+
 
 
 
 
 }
+
+
+

@@ -1,50 +1,100 @@
+<form [formGroup]="profileForm">
 
-<div style="border: 2px solid darkgreen;border-radius: 10px;width: 180px;margin-top: 5px">
-<p style="font-size: 18px;color: black;margin-top: 0;margin-bottom: 0">First Name</p>
-<p id="p-f-name" style="color: red"></p>
-<input class="f-name input-register" id="f-name" type="text">
-</div>
+  <p style="font-size: 18px;color: black;margin-top: 0;margin-bottom: 0">First Name</p>
+  <input type="text" formControlName="firstName">
+  <div class="div-error" *ngIf="profileForm.get('firstName')?.touched && profileForm.get('firstName')?.getError('required')">
+    First Name is required.
+  </div>
 
-<div style="border: 2px solid darkgreen;border-radius: 10px;width: 180px;margin-top: 5px">
-<p style="font-size: 18px;color: black;margin-top: 0;margin-bottom: 0">Last Name</p>
-<p id="p-l-name" style="color: red"></p>
-<input class="l-name input-register" id="l-name" type="text">
-</div>
+  <p style="font-size: 18px;color: black;margin-top: 0;margin-bottom: 0">Last Name</p>
+  <input type="text" formControlName="lastName">
+  <div class="div-error" *ngIf="profileForm.get('lastName')?.touched && profileForm.get('lastName')?.getError('required')">
+    Last Name is required.
+  </div>
 
-<div style="border: 2px solid darkgreen;border-radius: 10px;width: 180px;margin-top: 5px">
-<p style="font-size: 18px;color: black;margin-top: 0;margin-bottom: 0">Age</p>
-<p id="p-age" style="color: red"></p>
-<input class="age input-register" id="age" type="number">
-</div>
+  <p style="font-size: 18px;color: black;margin-top: 0;margin-bottom: 0">Age</p>
+  <input type="number" formControlName="age">
+  <div class="div-error" *ngIf="profileForm.get('age')?.touched && profileForm.get('age')?.getError('required')">
+    Age is required.
+  </div>
 
-<div style="border: 2px solid darkgreen;border-radius: 10px;width: 180px;margin-top: 5px">
-<p style="font-size: 18px;color: black;margin-top: 0;margin-bottom: 0">Phone</p>
-<p id="p-phone" style="color: red"></p>
-<input class="phone input-register" id="phone" type="text">
-</div>
+  <p style="font-size: 18px;color: black;margin-top: 0;margin-bottom: 0">Phone</p>
+  <input type="text" formControlName="phone">
+  <div class="div-error" *ngIf="profileForm.get('phone')?.touched && profileForm.get('phone')?.getError('required')">
+    Phone is required.
+  </div>
+  <div class="div-error" *ngIf="profileForm.get('phone')?.touched && profileForm.get('phone')?.getError('pattern')">
+    Phone number is invalid
+  </div>
 
-<div style="border: 2px solid darkgreen;border-radius: 10px;width: 180px;margin-top: 5px">
-<p style="font-size: 18px;color: black;margin-top: 0;margin-bottom: 0">Email</p>
-<p id="p-email" style="color: red"></p>
-<input class="email input-register" id="email" type="text">
-</div>
+  <p style="font-size: 18px;color: black;margin-top: 0;margin-bottom: 0">Email</p>
+  <input type="text" formControlName="email">
+  <div class="div-error" *ngIf="profileForm.get('email')?.touched && profileForm.get('email')?.getError('required')">
+    Email is required.
+  </div>
+  <div class="div-error" *ngIf="profileForm.get('email')?.touched && profileForm.get('email')?.getError('email')">
+    Email is invalid.
+  </div>
 
-<div style="border: 2px solid darkgreen;border-radius: 10px;width: 180px;margin-top: 5px">
-<p style="font-size: 18px;color: black;margin-top: 0;margin-bottom: 0">UserName</p>
-<p id="p-user" style="color: red"></p>
-<input class="username input-register" id="username" type="text">
-</div>
+  <p style="font-size: 18px;color: black;margin-top: 0;margin-bottom: 0">User Name</p>
+  <input type="text" formControlName="userName">
+  <div class="div-error" *ngIf="profileForm.get('userName')?.touched && profileForm.get('userName')?.getError('required')">
+    User Name is required.
+  </div>
+  <div class="div-error" *ngIf="profileForm.get('userName')?.touched && profileForm.get('userName')?.getError('pattern')">
+    User Name is Invalid.
+  </div>
 
-<div style="border: 2px solid darkgreen;border-radius: 10px;width: 180px;margin-top: 5px">
-<p style="font-size: 18px;color: black;margin-top: 0;margin-bottom: 0">Password</p>
-<input class="password input-register" id="password" type="password">
-</div>
+  <p style="font-size: 18px;color: black;margin-top: 0;margin-bottom: 0">Password</p>
+  <input id="password" type="password" formControlName="pass">
+  <p (click)="ShowPass()" style="margin-left: 180px;margin-top: -20px;cursor: pointer">Show Password</p>
+  <div class="div-error" *ngIf="profileForm.get('pass')?.touched && profileForm.get('pass')?.getError('required')">
+    Password is required.
+  </div>
+  <div class="div-error" *ngIf="profileForm.get('pass')?.touched && profileForm.get('pass')?.getError('pattern')">
+    Password is invalid.
+  </div>
 
-<div style="border: 2px solid darkgreen;border-radius: 10px;width: 180px;margin-top: 5px">
-<p style="font-size: 18px;color: black;margin-top: 0;margin-bottom: 0">Confirm-Password</p>
-<input class="confirm-pass input-register" id="confirm-pass" type="password">
-</div>
+  <p style="font-size: 18px;color: black;margin-top: 0;margin-bottom: 0">Confirm Password</p>
+  <input id="confirm-pass" type="password" formControlName="confPass">
+  <p (click)="ShowPass2()" style="margin-left: 180px;margin-top: -20px;cursor: pointer">Show Password</p>
+  <div class="div-error" *ngIf="profileForm.get('confPass')?.touched && profileForm.get('confPass')?.getError('required')">
+    Password is required.
+  </div>
+  <div class="div-error" *ngIf="profileForm.get('confPass')?.touched && profileForm.get('confPass')?.getError('pattern')">
+    Password is invalid.
+  </div>
 
-<input class="reg-btn" id="reg-btn" type="button" value="Register" (click)="registerButton()">
 
+  <input (click)="PassAndConfPass()" class="reg-btn" id="reg-btn" type="button" value="Register">
+</form>
+
+
+
+
+<table style="width:100%;margin-top: 20px">
+
+  <tr>
+    <th id="f-name-local">FName</th>
+    <th id="l-name-local">LName</th>
+    <th id="age-local">Age</th>
+    <th id="phone-local">Phone</th>
+    <th id="email-local">Email</th>
+    <th id="uname-local">UName</th>
+    <th id="password-local">Password</th>
+    <th id="conf-pass-local">Confirm Password</th>
+  </tr>
+
+  <tr>
+    <td>Germany</td>
+    <td>Germany</td>
+    <td>Germany</td>
+    <td>Germany</td>
+    <td>Germany</td>
+    <td>Germany</td>
+    <td>Germany</td>
+    <td>Germany</td>
+  </tr>
+
+</table>
 
