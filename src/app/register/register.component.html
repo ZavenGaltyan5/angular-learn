@@ -66,15 +66,15 @@
   </div>
 
 
-  <input (click)="PassAndConfPass()" class="reg-btn" id="reg-btn" type="button" value="Register">
+  <input (click)="RegisterBtn()" class="reg-btn" id="reg-btn" type="button" value="Register">
 </form>
 
 
 
 
-<table style="width:100%;margin-top: 20px">
-
+<table *ngIf="users.length>0" class="table" id="table" style="width:100%;margin-top: 20px">
   <tr>
+    <th id="index-th">Index</th>
     <th id="f-name-local">FName</th>
     <th id="l-name-local">LName</th>
     <th id="age-local">Age</th>
@@ -82,19 +82,28 @@
     <th id="email-local">Email</th>
     <th id="uname-local">UName</th>
     <th id="password-local">Password</th>
-    <th id="conf-pass-local">Confirm Password</th>
   </tr>
 
-  <tr>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td>Germany</td>
+  <tr *ngFor="let u of local; index as i">
+    <td id="index">{{i+1}}</td>
+    <td id="F-name-td">{{u.firstName}}</td>
+    <td id="L-name-td">{{u.lastName}}</td>
+    <td id="age-td">{{u.age}}</td>
+    <td id="phone-td">{{u.phone}}</td>
+    <td id="email-td">{{u.email}}</td>
+    <td id="uname-td">{{u.userName}}</td>
+    <td id="pass-td">{{u.password}}</td>
   </tr>
-
 </table>
+
+
+<div id="login-div" class="login-div">
+  <p class="login-user-name">User Name</p>
+  <input id="login-input-name" type="text">
+
+  <p class="login-user-pass">Password</p>
+  <input style="margin-bottom: 20px" id="login-input-pass" type="text">
+
+  <input (click)="LoginBtn()" value="Login" id="login-btn" class="login-btn" type="button">
+</div>
 
